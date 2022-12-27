@@ -82,7 +82,8 @@ class ToDoListController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = ToDoList::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        return view('edit_todo', compact('todo'));
     }
 
     /**
@@ -94,7 +95,27 @@ class ToDoListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'completed' => 'nullable',
+        ]);
+
+        $todo = ToDoList::find($id);
+        $todo->title = $request->input('title');
+        $todo->description = $request->input('description');
+
+        if($request->has('completed')){
+            $todo->completed = true;
+        }
+        else{
+            $todo->completed = false;
+
+        }
+
+        $todo->save();
+
+        return back()->with('success', 'Item updated successfully!');
     }
 
     /**
