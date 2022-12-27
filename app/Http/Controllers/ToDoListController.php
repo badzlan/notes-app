@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ToDoList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ToDoListController extends Controller
 {
@@ -18,7 +20,8 @@ class ToDoListController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $todos = ToDoList::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        return view('home', compact('todos'));
     }
 
     /**
@@ -39,7 +42,25 @@ class ToDoListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'completed' => 'nullable',
+        ]);
+
+        $todo = new ToDoList;
+        $todo->title = $request->input('title');
+        $todo->description = $request->input('description');
+
+        if($request->has('completed')){
+            $todo->completed = true;
+        }
+
+        $todo->user_id = Auth::user()->id;
+
+        $todo->save();
+
+        return back()->with('success', 'Item created successfully!');
     }
 
     /**

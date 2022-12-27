@@ -5,18 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header text-center"><b>{{ __('Dashboard List') }}</div>
 
                 <h5 class="card-header">
-                    <a href="{{ route('todo.create') }}" class="btn btn-sm btn-primary">Add Item</a>
+                    <a href="{{ route('todo.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Item</a>
                 </h5>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
                     <table class="table table-hover table-borderless">
                         <thead>
@@ -24,13 +19,19 @@
                             <th scope="col"></th>
                         </thead>
                         <tbody>
+                            @forelse ($todos as $todo)
                             <tr>
-                                <td>Pergi Berak</td>
+                                <td>{{ $todo->title }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-outline-success">Edit</a>
-                                    <a href="" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    <a href="" class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i> Edit</a>
+                                    <a href="" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td>No Item!</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
