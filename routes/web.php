@@ -23,6 +23,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/demo', [App\Http\Controllers\ToDoListController::class, 'index'])->name('demo');
-
 Route::resource('todo', 'App\Http\Controllers\ToDoListController');

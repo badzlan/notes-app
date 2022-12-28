@@ -12,7 +12,13 @@
                 </h5>
 
                 <div class="card-body">
-
+                    @if(session()->has('success'))
+                        
+                        <div class="alert alert-success" role="alert">
+                            {{ session()->get('success') }}
+                        </div>
+                    @endif
+                    
                     <table class="table table-hover table-borderless">
                         <thead>
                             <th scope="col">Item</th>
@@ -27,9 +33,9 @@
                                     <td><a href="{{ route('todo.edit', $todo->id) }}" style="color: black; text-decoration: none;">{{ $todo->title }}</a></td>
                                 @endif
 
-                                <td>
+                                <td class="text-end">
                                     <a href="{{ route('todo.edit', $todo->id) }}" class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i> Delete</a>
+                                    <a href="{{ route('todo.show', $todo->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
                             @empty

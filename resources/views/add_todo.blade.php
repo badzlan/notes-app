@@ -48,7 +48,7 @@
                         <div class="form-group row mb-3">
                             <label for="description" class="col-form-label text-md-right">Description</label>
 
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control @error('password') is-invalid @enderror" autocomplete="description" value="{{ old('description') }}"></textarea>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control @error('password') is-invalid @enderror" autocomplete="description" value="{{ old('description') }}" style="resize: none"></textarea>
 
                             @error('description')
                                 <span class="invalid-feedback" role="alert">

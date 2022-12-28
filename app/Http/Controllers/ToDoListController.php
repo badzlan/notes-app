@@ -60,7 +60,7 @@ class ToDoListController extends Controller
 
         $todo->save();
 
-        return back()->with('success', 'Item created successfully!');
+        return redirect()->route('todo.index')->with('success', 'Item created successfully!');
     }
 
     /**
@@ -71,7 +71,11 @@ class ToDoListController extends Controller
      */
     public function show($id)
     {
-        //
+        $todo = ToDoList::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        if(!$todo){
+            abort(404);
+        }
+        return view('delete_todo', compact('todo'));
     }
 
     /**
@@ -83,6 +87,9 @@ class ToDoListController extends Controller
     public function edit($id)
     {
         $todo = ToDoList::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        if(!$todo){
+            abort(404);
+        }
         return view('edit_todo', compact('todo'));
     }
 
@@ -115,7 +122,7 @@ class ToDoListController extends Controller
 
         $todo->save();
 
-        return back()->with('success', 'Item updated successfully!');
+        return redirect()->route('todo.index')->with('success', 'Item updated successfully!');
     }
 
     /**
@@ -126,6 +133,8 @@ class ToDoListController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = ToDoList::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        $todo->delete();
+        return redirect()->route('todo.index')->with('success', 'Item deleted successfully!');
     }
 }
