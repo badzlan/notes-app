@@ -30,7 +30,7 @@
                         <div class="form-group row mb-3">
                             <div class="col-md-12">
                                 <h4 class="text-center">
-                                    Are you sure want to delete <b>{{ $todo->title }}</b>?
+                                    Are you sure want to delete <b>{{ $todo->title }}</b> ?
                                 </h4>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                 <button type="submit" class="btn btn-danger">
                                     Delete
                                 </button>
-                                <a href="{{ route('todo.index') }}" class="btn btn-info">No</a>
+                                <a href="{{ route('todo.index') }}" class="btn btn-info text-white">No</a>
                             </div>
                         </div>
 
