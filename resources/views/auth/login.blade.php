@@ -73,7 +73,7 @@
                                 @endif
 
                                 <div>
-                                    <a href="" class="btn mt-4 social" style="border: 1px solid black">
+                                    <a href="{{ route('google.login') }}" class="btn mt-4 social" style="border: 1px solid black">
                                         <i class="fab fa-google"></i> 
                                         <span>Login with Google</span>              
                                     </a>
