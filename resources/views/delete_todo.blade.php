@@ -40,7 +40,7 @@
                                 <button type="submit" class="btn btn-danger">
                                     Delete
                                 </button>
-                                <a href="{{ route('todo.index') }}" class="btn btn-info text-white">No</a>
+                                <a href="{{ route('todo.index') }}" class="btn btn-info text-white">Cancel</a>
                             </div>
                         </div>
 
