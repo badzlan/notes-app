@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" href="./img/icon.png" />
-    <title>{{ config('app.name', 'ToDoList') }}</title>
+    <title>{{ config('app.name', 'Note App') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
