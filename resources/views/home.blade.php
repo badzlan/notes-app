@@ -25,7 +25,7 @@
                             <th scope="col"></th>
                         </thead>
                         <tbody>
-                            @foreach ($todos as $todo)
+                            @forelse ($todos as $todo)
                             <tr>
                                 @if ($todo->completed)
                                     <td><a href="{{ route('todo.edit', $todo->id) }}" style="color: black; text-decoration: none;"><s>{{ $todo->title }}</s></a></td>
@@ -42,7 +42,7 @@
                             <tr>
                                 <td>No Item!</td>
                             </tr>
-                            @endforeach
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
