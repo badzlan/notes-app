@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center"><b>Edit {{ $todo->title }}</b></div>
+                <div class="card-header text-center"><b>Edit {{ $note->title }}</b></div>
 
                 <h5 class="card-header">
-                    <a href="{{ route('todo.index') }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-arrow-left"></i> Go Back</a>
+                    <a href="{{ route('note.index') }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-arrow-left"></i> Go Back</a>
                 </h5>
 
                 <div class="card-body mx-4">
@@ -30,14 +30,14 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('todo.update', $todo->id) }}">
+                    <form method="POST" action="{{ route('note.update', $note->id) }}">
                         @csrf
                         @method('PUT')
 
                         <div class="form-group row mb-2">
                             <label for="title" class="col-form-label text-md-right">Title</label>
 
-                            <input id="title" type="title" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $todo->title }}" required autocomplete="title" autofocus>
+                            <input id="title" type="title" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $note->title }}" required autocomplete="title" autofocus>
 
                             @error('title')
                                 <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
                         <div class="form-group row mb-3">
                             <label for="description" class="col-form-label text-md-right">Description</label>
 
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control @error('password') is-invalid @enderror" autocomplete="description" value="{{ $todo->description }}" style="resize: none">{{ $todo->description }}</textarea>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control @error('password') is-invalid @enderror" autocomplete="description" value="{{ $note->description }}" style="resize: none">{{ $note->description }}</textarea>
 
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
@@ -60,10 +60,10 @@
 
                         <div class="form-group row mb-2">
                             <div class="form-check">
-                                @if ($todo->completed)
-                                    <input class="form-check-input" type="checkbox" name="completed" id="completed" value="{{ $todo->completed }}" checked>
+                                @if ($note->completed)
+                                    <input class="form-check-input" type="checkbox" name="completed" id="completed" value="{{ $note->completed }}" checked>
                                 @else
-                                    <input class="form-check-input" type="checkbox" name="completed" id="completed" value="{{ $todo->completed }}">
+                                    <input class="form-check-input" type="checkbox" name="completed" id="completed" value="{{ $note->completed }}">
                                 @endif
 
                                 <label class="form-check-label" for="completed">

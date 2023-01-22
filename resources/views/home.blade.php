@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center"><b>{{ __('Dashboard List') }}</b></div>
+                <div class="card-header text-center"><b>{{ __('Dashboard Notes') }}</b></div>
 
                 <h5 class="card-header">
                     <a href="{{ route('note.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Item</a>
