@@ -21,7 +21,7 @@
                     
                     <table class="table table-hover table-borderless">
                         <thead>
-                            <th scope="col">Item</th>
+                            <th scope="col">Notes List</th>
                             <th scope="col"></th>
                         </thead>
                         <tbody>
@@ -40,7 +40,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td>No Item!</td>
+                                <td>No Notes yet!</td>
                             </tr>
                             @endforelse
                         </tbody>
