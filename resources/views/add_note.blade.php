@@ -8,7 +8,7 @@
                 <div class="card-header text-center"><b>Add To Do List</b></div>
 
                 <h5 class="card-header">
-                    <a href="{{ route('todo.index') }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-arrow-left"></i> Go Back</a>
+                    <a href="{{ route('note.index') }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-arrow-left"></i> Go Back</a>
                 </h5>
 
                 <div class="card-body mx-4">
@@ -30,7 +30,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('todo.store') }}">
+                    <form method="POST" action="{{ route('note.store') }}">
                         @csrf
 
                         <div class="form-group row mb-2">
