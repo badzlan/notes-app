@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ToDoList;
+use App\Models\Notes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ToDoListController extends Controller
+class NotesController extends Controller
 {
     public function __construct()
     {
@@ -20,7 +20,7 @@ class ToDoListController extends Controller
      */
     public function index()
     {
-        $todos = ToDoList::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        $todos = Notes::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
         return view('home', compact('todos'));
     }
 
@@ -48,7 +48,7 @@ class ToDoListController extends Controller
             'completed' => 'nullable',
         ]);
 
-        $todo = new ToDoList;
+        $todo = new Notes;
         $todo->title = $request->input('title');
         $todo->description = $request->input('description');
 
@@ -71,7 +71,7 @@ class ToDoListController extends Controller
      */
     public function show($id)
     {
-        $todo = ToDoList::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        $todo = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
         if(!$todo){
             abort(404);
         }
@@ -86,7 +86,7 @@ class ToDoListController extends Controller
      */
     public function edit($id)
     {
-        $todo = ToDoList::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        $todo = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
         if(!$todo){
             abort(404);
         }
@@ -108,7 +108,7 @@ class ToDoListController extends Controller
             'completed' => 'nullable',
         ]);
 
-        $todo = ToDoList::find($id);
+        $todo = Notes::find($id);
         $todo->title = $request->input('title');
         $todo->description = $request->input('description');
 
@@ -133,7 +133,7 @@ class ToDoListController extends Controller
      */
     public function destroy($id)
     {
-        $todo = ToDoList::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        $todo = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
         $todo->delete();
         return redirect()->route('todo.index')->with('success', 'Item deleted successfully!');
     }
