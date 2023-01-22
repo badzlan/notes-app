@@ -8,7 +8,7 @@
                 <div class="card-header text-center"><b>{{ __('Dashboard Notes') }}</b></div>
 
                 <h5 class="card-header">
-                    <a href="{{ route('note.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Item</a>
+                    <a href="{{ route('note.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Notes</a>
                 </h5>
 
                 <div class="card-body">

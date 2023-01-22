@@ -37,10 +37,10 @@
 
                         <div class="form-group row mb-3">
                             <div class="text-center">
+                                <a href="{{ route('note.index') }}" class="btn btn-info text-white">Cancel</a>
                                 <button type="submit" class="btn btn-danger">
                                     Delete
                                 </button>
-                                <a href="{{ route('note.index') }}" class="btn btn-info text-white">Cancel</a>
                             </div>
                         </div>
 

@@ -60,7 +60,7 @@ class NotesController extends Controller
 
         $note->save();
 
-        return redirect()->route('note.index')->with('success', 'Item created successfully!');
+        return redirect()->route('note.index')->with('success', 'Note created successfully!');
     }
 
     /**
@@ -122,7 +122,7 @@ class NotesController extends Controller
 
         $note->save();
 
-        return redirect()->route('note.index')->with('success', 'Item updated successfully!');
+        return redirect()->route('note.index')->with('success', 'Note updated successfully!');
     }
 
     /**
@@ -135,6 +135,6 @@ class NotesController extends Controller
     {
         $note = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
         $note->delete();
-        return redirect()->route('note.index')->with('success', 'Item deleted successfully!');
+        return redirect()->route('note.index')->with('success', 'Note deleted successfully!');
     }
 }
