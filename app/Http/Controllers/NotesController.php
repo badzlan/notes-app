@@ -20,8 +20,8 @@ class NotesController extends Controller
      */
     public function index()
     {
-        $todos = Notes::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
-        return view('home', compact('todos'));
+        $notes = Notes::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+        return view('home', compact('notes'));
     }
 
     /**
@@ -31,7 +31,7 @@ class NotesController extends Controller
      */
     public function create()
     {
-        return view('add_todo');
+        return view('add_note');
     }
 
     /**
@@ -48,19 +48,19 @@ class NotesController extends Controller
             'completed' => 'nullable',
         ]);
 
-        $todo = new Notes;
-        $todo->title = $request->input('title');
-        $todo->description = $request->input('description');
+        $note = new Notes;
+        $note->title = $request->input('title');
+        $note->description = $request->input('description');
 
         if($request->has('completed')){
-            $todo->completed = true;
+            $note->completed = true;
         }
 
-        $todo->user_id = Auth::user()->id;
+        $note->user_id = Auth::user()->id;
 
-        $todo->save();
+        $note->save();
 
-        return redirect()->route('todo.index')->with('success', 'Item created successfully!');
+        return redirect()->route('note.index')->with('success', 'Item created successfully!');
     }
 
     /**
@@ -71,11 +71,11 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-        $todo = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
-        if(!$todo){
+        $note = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        if(!$note){
             abort(404);
         }
-        return view('delete_todo', compact('todo'));
+        return view('delete_note', compact('note'));
     }
 
     /**
@@ -86,11 +86,11 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        $todo = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
-        if(!$todo){
+        $note = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        if(!$note){
             abort(404);
         }
-        return view('edit_todo', compact('todo'));
+        return view('edit_note', compact('note'));
     }
 
     /**
@@ -108,21 +108,21 @@ class NotesController extends Controller
             'completed' => 'nullable',
         ]);
 
-        $todo = Notes::find($id);
-        $todo->title = $request->input('title');
-        $todo->description = $request->input('description');
+        $note = Notes::find($id);
+        $note->title = $request->input('title');
+        $note->description = $request->input('description');
 
         if($request->has('completed')){
-            $todo->completed = true;
+            $note->completed = true;
         }
         else{
-            $todo->completed = false;
+            $note->completed = false;
 
         }
 
-        $todo->save();
+        $note->save();
 
-        return redirect()->route('todo.index')->with('success', 'Item updated successfully!');
+        return redirect()->route('note.index')->with('success', 'Item updated successfully!');
     }
 
     /**
@@ -133,8 +133,8 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        $todo = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
-        $todo->delete();
-        return redirect()->route('todo.index')->with('success', 'Item deleted successfully!');
+        $note = Notes::where('id', $id)->where('user_id', Auth::user()->id)->first();
+        $note->delete();
+        return redirect()->route('note.index')->with('success', 'Item deleted successfully!');
     }
 }
