@@ -75,7 +75,7 @@
                                 <div>
                                     <a href="{{ route('google.login') }}" class="btn mt-4 social" style="border: 1px solid black">
                                         <i class="fab fa-google"></i> 
-                                        <span>Login with Google</span>              
+                                        <span class="ms-1">Login with Google</span>              
                                     </a>
                                 </div>
                             </div>
