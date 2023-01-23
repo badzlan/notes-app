@@ -26,8 +26,7 @@ class GoogleController extends Controller
             $user = new User();
             $user->name = $data->name;
             $user->email = $data->email;
-            $user->provider_id = $data->id;
-            $user->avatar = $data->avatar;
+            $user->google_id = $data->id;
             $user->save();
         }
 
