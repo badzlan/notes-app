@@ -57,16 +57,6 @@
                             @enderror
                         </div>
 
-                        <div class="form-group row mb-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="completed" id="completed" value="{{ old('completed')}}">
-
-                                <label class="form-check-label" for="completed">
-                                    Completed?
-                                </label>
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-3">
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">
