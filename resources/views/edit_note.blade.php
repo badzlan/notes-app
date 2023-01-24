@@ -49,9 +49,9 @@
                         <div class="form-group row mb-3">
                             <label for="description" class="col-form-label text-md-right">Description</label>
 
+                            <input name="description" id="description" type="hidden" value="{{ $note->description }}">
+                            <trix-editor input="description"></trix-editor>
                             {{-- <textarea name="description" id="description" cols="30" rows="10" class="form-control @error('password') is-invalid @enderror" autocomplete="description" value="{{ $note->description }}" style="resize: none">{{ $note->description }}</textarea> --}}
-                            <input id="description" type="hidden" name="content">
-                            <trix-editor input="description" name="description" id="description" cols="30" rows="10" class="form-control @error('password') is-invalid @enderror" autocomplete="description" style="resize: none">{{ $note->description }}</trix-editor>
 
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
