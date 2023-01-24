@@ -46,9 +46,10 @@
                         </div>
 
                         <div class="form-group row mb-3">
-                            <label for="description" class="col-form-label text-md-right">Description</label>
+                            <label for="description" class="col-form-label text-md-right">Notes</label>
 
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control @error('password') is-invalid @enderror" autocomplete="description" value="{{ old('description') }}" style="resize: none"></textarea>
+                            <input name="description" id="description" type="hidden">
+                            <trix-editor input="description"></trix-editor>
 
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
