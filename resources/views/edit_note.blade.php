@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="form-group row mb-3">
-                            <label for="description" class="col-form-label text-md-right">Description</label>
+                            <label for="description" class="col-form-label text-md-right">Notes</label>
 
                             <input name="description" id="description" type="hidden" value="{{ $note->description }}">
                             <trix-editor input="description"></trix-editor>
