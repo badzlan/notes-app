@@ -6,11 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center"><b>Add Notes</b></div>
-
+                
                 <h5 class="card-header">
                     <a href="{{ route('note.index') }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-arrow-left"></i> Go Back</a>
                 </h5>
-
+                
                 <div class="card-body mx-4">
 
                     @if ($errors->any())
